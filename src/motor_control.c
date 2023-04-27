@@ -134,13 +134,13 @@ static void motor_InitMotor()
     };
 
     TIM_BDTRInitTypeDef timer_brakeinitpara = {
-        .TIM_OSSRState = TIM_OSSRState_Disable,
-        .TIM_OSSIState = TIM_OSSIState_Disable,
-        .TIM_LOCKLevel = TIM_LOCKLevel_OFF,
-        .TIM_DeadTime = 0xFF,
-        .TIM_Break = TIM_Break_Disable,
-        .TIM_BreakPolarity = TIM_BreakPolarity_High,
-        .TIM_AutomaticOutput = TIM_AutomaticOutput_Enable,
+        .TIM_OSSRState = TIM_OSSRState_Disable,            // 禁用OSSR（WHY）
+        .TIM_OSSIState = TIM_OSSRState_Disable,            // 禁用OSSI（WHY）
+        .TIM_LOCKLevel = TIM_LOCKLevel_OFF,                // 不锁寄存器
+        .TIM_DeadTime = 0x00,                              // 禁用死区时间
+        .TIM_Break = TIM_Break_Enable,                     // 启用刹车
+        .TIM_BreakPolarity = TIM_BreakPolarity_Low,        // 刹车低电平有效
+        .TIM_AutomaticOutput = TIM_AutomaticOutput_Enable, // 启用自动设置MOE
     };
 
     // 初始化Timer
