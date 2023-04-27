@@ -11,8 +11,8 @@
 *******************************************************************************/
 #include "ch32v10x_it.h"
 
-void NMI_Handler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
-void HardFault_Handler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
+void NMI_Handler(void) __attribute__((interrupt(WCH_INTERRUPT_TYPE)));
+void HardFault_Handler(void) __attribute__((interrupt(WCH_INTERRUPT_TYPE)));
 
 /*********************************************************************
  * @fn      NMI_Handler

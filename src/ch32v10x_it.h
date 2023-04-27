@@ -12,7 +12,11 @@
 #ifndef __CH32V10x_IT_H
 #define __CH32V10x_IT_H
 
-#include "debug.h"
+#ifdef WCH_GCC
+#define WCH_INTERRUPT_TYPE "WCH-Interrupt-fast"
+#else
+#define WCH_INTERRUPT_TYPE 
+#endif
 
 
 #endif /* __CH32V10x_IT_H */

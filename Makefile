@@ -2,7 +2,6 @@ ROOT_DIR := .
 APP_SRC_DIR := .
 CMAKE_DIR = $(APP_SRC_DIR)
 
-TARGET_DIR = keyboard/$(TARGET)
 BUILD_DIR = _build
 
 build : $(BUILD_DIR)/Makefile

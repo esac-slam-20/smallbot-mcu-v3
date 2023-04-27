@@ -16,23 +16,23 @@ set(TARGET main)
 # add the executable
 add_executable(${TARGET}.elf 
     src/main.c
+    src/debug.c
     src/ch32v10x_it.c
-    # src/communication.c
-    # src/config.c
-    # src/motor_control.c
-    # src/pid.c
-    # src/batt.c
-    
-    # src/systick.c
+    src/communication.c
+    src/config.c
+    src/motor_control.c
+    src/pid.c
+    src/batt.c
+    src/systick.c
+
     ${DRIVER_ROOT}/src/ch32v10x_misc.c
     ${DRIVER_ROOT}/src/ch32v10x_gpio.c
-    # ${DRIVER_ROOT}/Source/gd32vf103_timer.c
+    ${DRIVER_ROOT}/src/ch32v10x_tim.c
     ${DRIVER_ROOT}/src/ch32v10x_usart.c
     ${DRIVER_ROOT}/src/ch32v10x_rcc.c
-    # ${DRIVER_ROOT}/Source/gd32vf103_eclic.c
+    ${DRIVER_ROOT}/src/ch32v10x_adc.c
     ${SDK_CORE_ROOT}/core_riscv.c
     ${SDK_INIT_ROOT}/startup_ch32v10x.S
-    ${SDK_ROOT}/Debug/debug.c
     ${SDK_ROOT}/system_ch32v10x.c
 )
 

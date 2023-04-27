@@ -12,8 +12,6 @@
 #ifndef __CH32V10x_CONF_H
 #define __CH32V10x_CONF_H
 
-#define SYSCLK_FREQ_HSE 48000000
-
 #include "ch32v10x_it.h"
 #include "ch32v10x_adc.h"
 #include "ch32v10x_bkp.h"
