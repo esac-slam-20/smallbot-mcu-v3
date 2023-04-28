@@ -7,7 +7,7 @@
 #include "communication.h"
 #include "config.h"
 #include "motor_control.h"
-#include "batt.h"
+#include "batt_adc.h"
 
 #include "stdio.h"
 #include "systick.h"
@@ -25,12 +25,12 @@ static void init()
 
     // 提前启用所有GPIO的时钟
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOB | RCC_APB2Periph_GPIOC, ENABLE);
-    
-    debug_UARTInit();    // 初始化调试接口
-    config_Init();       // 配置初始化
-    comm_Init();         // 初始化通信接口
-    motor_Init();        // 初始化电机控制
-    batt_Init();         // 初始化电量测量
+
+    debug_UARTInit(); // 初始化调试接口
+    config_Init();    // 配置初始化
+    comm_Init();      // 初始化通信接口
+    motor_Init();     // 初始化电机控制
+    batt_Init();      // 初始化电量测量
 }
 
 int main()
@@ -66,6 +66,12 @@ int main()
         if (SysTick_Ms % 5 == 0)
         {
             motor_Routine();
+        }
+
+        // 电量测量
+        if (SysTick_Ms % 1000 == 0)
+        {
+            batt_Measure();
         }
     }
 }

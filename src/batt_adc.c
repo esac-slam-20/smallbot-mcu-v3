@@ -1,4 +1,4 @@
-#include "batt.h"
+#include "batt_adc.h"
 #include "ch32v10x_adc.h"
 #include "ch32v10x_gpio.h"
 #include "ch32v10x_rcc.h"

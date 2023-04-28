@@ -10,7 +10,6 @@
  */
 
 #include "motor_control.h"
-#include "batt.h"
 #include "communication.h"
 #include "config.h"
 #include "debug.h"
@@ -351,13 +350,6 @@ void motor_Routine()
             val = pid_DoPID(i, targetSpeed, currentSpeed);
         }
         motor_SetPWM(i, val);
-    }
-
-    // 电量测量
-    if (batt_counter++ > 1 * 200)
-    {
-        batt_counter = 0;
-        batt_Measure();
     }
 }
 

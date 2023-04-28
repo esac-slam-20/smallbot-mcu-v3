@@ -22,7 +22,7 @@ add_executable(${TARGET}.elf
     src/config.c
     src/motor_control.c
     src/pid.c
-    src/batt.c
+    src/batt_adc.c
     src/systick.c
 
     ${DRIVER_ROOT}/src/ch32v10x_misc.c

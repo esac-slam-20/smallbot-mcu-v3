@@ -10,7 +10,7 @@
  */
 
 #include "communication.h"
-#include "batt.h"
+#include "batt_adc.h"
 #include "config.h"
 #include "motor_control.h"
 
