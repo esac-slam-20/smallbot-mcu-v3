@@ -36,7 +36,9 @@ static void init()
 int main()
 {
     init();
-    printf("Hello, world.\r\n");
+    DEBUG_MSG("Project Smallbot");
+    DEBUG_MSG("Copyright 2021-2023 GDUT ESAC");
+    DEBUG_MSG("Build Date: %s %s", __DATE__, __TIME__);
 
     gpio_init_pin(GPIO_PC(13), GPIO_Mode_Out_PP, GPIO_Speed_10MHz);
     GPIO_WriteBit(GPIOC, GPIO_Pin_13, Bit_RESET);

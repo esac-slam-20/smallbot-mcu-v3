@@ -274,7 +274,7 @@ void motor_SetSpeed(int16_t speeds[4])
     {
         motor_targetSpeeds[i] = speeds[i];
     }
-    PRINT("Set motor speed to %d %d %d %d.\r\n", speeds[0], speeds[1], speeds[2], speeds[3]);
+    DEBUG_MSG("Set motor speed to %d %d %d %d.\r\n", speeds[0], speeds[1], speeds[2], speeds[3]);
 }
 
 /**

@@ -36,7 +36,7 @@ void config_Init()
 
 void config_SetPIDParam(struct PIDParam* param)
 {
-    PRINT("Set PID param to P: %d, I: %d, D: %d.\r\n", (int)param->Prop, (int)param->Int, (int)param->Diff);
+    DEBUG_MSG("Set PID param to P: %d, I: %d, D: %d.", (int)param->Prop, (int)param->Int, (int)param->Diff);
     config_PIDParam.Prop = param->Prop;
     config_PIDParam.Int = param->Int;
     config_PIDParam.Diff = param->Diff;
@@ -44,6 +44,6 @@ void config_SetPIDParam(struct PIDParam* param)
 
 void config_SetEncoderTicks(uint16_t ticks)
 {
-    PRINT("Set encoder ticks to %d.\r\n", ticks);
+    DEBUG_MSG("Set encoder ticks to %d.", ticks);
     config_EncoderTicks = ticks;
 }
