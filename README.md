@@ -1,6 +1,6 @@
-# Project-SmallBot-MCU
+# Project-SmallBot-MCU-V3
 
-小车计划主控代码
+小车计划主控代码 (V3)
 
 ## 编译
 
@@ -15,21 +15,21 @@ make
 
 ## 烧录
 
-推荐使用USB DFU方式烧录。按住主控板上的BOOT0按钮，然后按下并松开Reset按钮，再松开Boot0按钮，即可进入DFU模式。
+推荐使用USB DFU方式烧录。按住主控板上的BOOT按钮，然后按下并松开Reset按钮，再松开Boot按钮，即可进入DFU模式。
 
 ### Linux 下
 
-对于Linux系统，请下载[gd32vflash](https://dl.sipeed.com/fileList/LONGAN/platformio/dl-packages/tool-gd32vflash-v0.1.0-linux.tar.gz)并解压。
+对于Linux系统，请安装[wchisp](https://github.com/ch32-rs/wchisp)。参考对应的README安装即可。
 
-添加下面的 udev 规则到`/etc/udev/rules.d/99-gd32vf103.rules`：
+添加下面的 udev 规则到`/etc/udev/rules.d/50-wchisp.rules`：
 ```
-ATTRS{idVendor}=="28e9", ATTRS{idProduct}=="0189", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1", ENV{ID_MM_PORT_IGNORE}="1"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="4348", ATTRS{idProduct}=="55e0", MODE="0666"
 ```
 添加完毕后，需要重新拔插你的USB设备。
 
 对于预编译固件，使用以下命令行烧录：
 ```
-dfu-util -d 28e9:0189 -a 0 --dfuse-address 0x08000000:leave -D main.bin
+wchisp flash main.bin
 ```
 
 对于开发固件，使用以下命令行烧录：
@@ -38,4 +38,5 @@ make flash
 ```
 ### Windows 下
 
-请到[官方下载页面](http://www.gd32mcu.com/cn/download?kw=DFU&lan=cn)，下载DFU Tool 和 DFU Driver。解压后先安装驱动，然后运行DFU程序烧录。
+请到[官方下载页面](https://www.wch.cn/downloads/WCHISPTool_Setup_exe.html)，下载WCHISPTool。下载后运行，选择芯片 CH32V103，选择固件烧录即可。
+
